@@ -1,0 +1,24 @@
+<ion-view title="Funs" ng-controller="headPopoverCtrl">
+  <ion-nav-buttons side="left">
+    <button  class="button" menu-toggle="left" >
+      <img src="img/1.jpg" height="34" width="34" class="headPic-topBar">
+    </button>
+    </ion-nav-buttons>
+  <ion-nav-buttons side="right">
+    <button  class="button button-icon icon ion-navicon" ng-click="openPopover($event)">
+    </button>
+    </ion-nav-buttons>
+	<ion-content scroll='false'>
+			<ion-slide-box does-continue='true'>
+				  <ion-slide>
+				    <div class="box blue"><h1>BLUE</h1></div>
+				  </ion-slide>
+				  <ion-slide>
+				    <div class="box yellow"><h1>YELLOW</h1></div>
+				  </ion-slide>
+				  <ion-slide >
+				    <div class="box pink"><h1>PINK</h1></div>
+				  </ion-slide>
+				</ion-slide-box>
+	</ion-content>
+</ion-view>

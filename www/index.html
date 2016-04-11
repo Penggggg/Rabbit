@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app="rabbitApp">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>Rabbit</title>
+    <link href="lib/ionic/css/ionic.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/animate.css">
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+  <body ng-controller="rooCtrl">
+    
+    <ion-side-menus>
+
+      <!--中间内容-->
+      <ion-side-menu-content drag-content="false">
+          <!--中间顶部-->
+        
+          <!--中间tabs-->
+          <ion-nav-view name="middle" ></ion-nav-view>
+
+      </ion-side-menu-content>
+
+      <!--左侧内容-->
+      <ion-side-menu side="left" width="295">
+          按时大大
+      </ion-side-menu>
+
+    </ion-side-menus>
+
+
+
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="http://www.hirabbit.cn:80/socket.io/socket.io.js"></script>
+    <script src="lib/angular-socket-io/socket.min.js"></script>
+    <script src="js/ngCordova.min.js"></script>
+    <script src="cordova.js"></script>
+    <script src="lib/resource.js"></script>
+    <script src="js/build/all.min.js"></script>
+  </body>
+</html>

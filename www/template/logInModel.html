@@ -1,0 +1,31 @@
+<ion-view class="logInBackGround animated fadeInDown" ng-controller="logInCtrl">
+    <ion-content class="" scroll="true" >
+		<div class="content" scroll="false">
+			<h1 class="animated rotateInDownLeft modelTitle">HiRabbit</h1>
+			 <a class="button button-outline icon-right ion-navicon button-calm logInBackBtn" ui-sref="tabs.chats">Back</a>
+		</div>  
+		<div class="list card">
+		  <div class="item item-avatar">
+		    <img src="img/ionic.png">
+		    <h2>Welcome to login</h2>
+		    <p>have a nice day!</p>
+		  </div>
+		  <form name="logForm">
+				<div class="item item-body">
+			
+				<label class="item item-input item-floating-label">
+				  <span class="input-label" ng-class="{inputWrong: logForm.logName.$invalid}">{{ log.userText }}</span>
+		          <input type="text" placeholder="Your Account" ng-model="log.name" name="logName" required check-name-repeat2 >
+		        </label>
+				<label class="item item-input item-floating-label">
+				  <span class="input-label" ng-class="{inputWrong: logForm.logPSW.$invalid}">{{ log.pswText }}</span>
+		          <input type="password" placeholder="Your Password" ng-model="log.PSW" name="logPSW" required psw-match >
+		        </label>				
+			  </div>
+			<div class="content padding">
+				<button class="button button-calm button-positive formBtn" ng-click="log.logIn()" ng-disabled="logForm.$invalid">LogIn</button>
+			</div>
+		</form>
+		</div>
+    </ion-content>
+</ion-view>

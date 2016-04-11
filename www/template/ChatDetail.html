@@ -1,0 +1,35 @@
+<ion-view title="Friend"  ng-controller="headPopoverCtrl">
+  <ion-nav-buttons side="right">
+    <button  class="button"  menu-toggle="left">
+      <img src="img/1.jpg" height="34" width="34" class="headPic-topBar">
+    </button>
+    </ion-nav-buttons>
+   <ion-nav-buttons side="left">
+    <button  class="button icon-left ion-chevron-left "  ng-click="$ionicGoBack()">
+     back
+    </button>
+    </ion-nav-buttons>
+  <div  ng-controller="chatTogetherCtrl">
+  <ion-content has-bouncing='true' class="chatBackground">
+  
+  <ion-list>
+
+      <ion-item ng-repeat="chatData in chat.chatData" class="item chatItem" ng-class="{'itemAvatar': chatData.left && chatData.type != 'sys' , 'itemAvatarRight': chatData.right,'chatSys': chatData.type == 'sys' }">
+          <img src="http://www.runoob.com/try/demo_source/venkman.jpg" ng-if="chatData.type == 'msg' && chatData.left == true ">
+          <img src="img/ionic.png"  ng-if="chatData.type == 'msg' && chatData.right == true ">
+          <h2 ng-class="{'chatRightTitle': chatData.right}">{{ chatData.from }}</h2>
+          <p  ng-class="{'chatRight': chatData.right, 'chatPar': chatData.type == 'msg'}">{{ chatData.text }}</p>
+      </ion-item>
+
+  </ion-list>
+
+  </ion-content>
+    <ion-footer-bar class="bar  item-input-inset">
+      <label class="item-input-wrapper">
+        <i class="icon ion-ionic placeholder-icon"></i>
+        <input type="text" placeholder="" ng-model="chat.text">
+      </label>      
+    <button class="button button-calm" ng-click="chat.sendMsg();">Send</button>
+    </ion-footer-bar>
+  </div>
+</ion-view>

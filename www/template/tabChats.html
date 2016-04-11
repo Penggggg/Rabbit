@@ -1,0 +1,34 @@
+<ion-view title="Chat" ng-controller="headPopoverCtrl">
+  <ion-nav-buttons side="left">
+    <button class="button"  menu-toggle="left">
+      <img src="img/1.jpg" height="34" width="34" class="headPic-topBar">
+    </button>
+    </ion-nav-buttons>
+  <ion-nav-buttons side="right" >
+    <button  class="button button-icon icon ion-navicon" ng-click="openPopover($event)">
+    </button>
+    </ion-nav-buttons>
+  <ion-content has-bouncing='true' ng-controller="tabsChatCtrl">
+	  <ion-list>
+      <ion-item class="item-remove-animate item-avatar item-icon-right" type="item-text-wrap"  ng-click="tab();">
+        <img ng-src="img/bg1.jpg" >
+        <h2>Chat Together!</h2>
+        <p>this is a group of chating</p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+        <ion-option-button class="button-assertive">
+          Delete
+        </ion-option-button>
+      </ion-item>
+      <ion-item class="item-remove-animate item-avatar item-icon-right" type="item-text-wrap" ui-sref="tabs.detail">
+        <img ng-src="img/ionic.png" >
+        <h2>hzp</h2>
+        <p>2113</p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+        <ion-option-button class="button-assertive">
+          Delete
+        </ion-option-button>
+      </ion-item>
+    </ion-list>
+    {{ test }}
+  </ion-content>
+</ion-view>

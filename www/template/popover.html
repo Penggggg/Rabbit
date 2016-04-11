@@ -1,0 +1,30 @@
+<ion-popover-view class="popview animated ">
+    <ion-content  has-bouncing='true' >
+        <ion-list class="list popoverList">
+        	<ion-item class="item item-icon-left popItem">
+              <i class="icon ion-ios-film pop1"></i>
+                扫一扫
+        	</ion-item>
+            <ion-item class="item item-icon-left popItem">
+              <i class="icon ion-person-add pop2"></i>
+              加好友
+            </ion-item>
+            <ion-item class="item item-icon-left popItem">
+              <i class="icon ion-chatbubbles pop3"></i>
+              创建讨论组
+            </ion-item>
+            <ion-item class="item item-icon-left popItem popoverItem" ui-sref="register" ng-click="closePopover();enterReg();">
+              <i class="icon ion-monitor pop4"></i>
+              注册
+            </ion-item>
+            <ion-item class="item item-icon-left popItem popoverItem" ng-click="closePopover();enterLog();"  ui-sref="logIn" >
+              <i class="icon ion-ios-color-filter pop5"></i>
+              登录
+            </ion-item>
+            <ion-item class="item item-icon-left popItem" >
+              <i class="icon ion-ios-refresh pop6"></i>
+              退出账号
+            </ion-item>            
+      	</ion-list>
+    </ion-content>
+</ion-popover-view>

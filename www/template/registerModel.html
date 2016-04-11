@@ -1,0 +1,36 @@
+<ion-view class="registerBackGround animated fadeInDown" ng-controller="registerCtrl">
+    <ion-content class="" scroll="true" >
+		<div class="content" scroll="false">
+			<h1 class="animated rotateInDownLeft modelTitle">Register</h1>
+			 <a class="button button-outline icon-right ion-navicon button-calm logInBackBtn" ui-sref="tabs.chats">Back</a>
+		</div>  
+		<div class="list card">
+		  <div class="item item-avatar">
+		    <img src="img/ionic.png">
+		    <h2>Welcome to Family!</h2>
+		    <p>have a nice day!</p>
+		  </div>
+			<div class="item item-body">
+				<form name="regForm">
+					<label class="item item-input item-floating-label">
+					  <span class="input-label" ng-class="{inputWrong: regForm.regName.$invalid}">{{reg.userText}}</span>
+			          <input type="text" name="regName" placeholder="Your Account" ng-model="reg.name" required check-name-repeat >
+			        </label>
+					<label class="item item-input item-floating-label">
+					  <span class="input-label">Password</span>
+			          <input type="password" name="regPSW" placeholder="Your Password" ng-model="reg.PSW">
+			        </label>
+					<label class="item item-input item-floating-label">
+					  <span class="input-label animated" ng-class="{inputWrong: regForm.regPSWA.$invalid}">{{reg.PSWAtext}}</span>
+			          <input type="password" name="regPSWA" placeholder="Password Again" ng-model="reg.PSWA" required check-password-repeat ng-model-options="{debounce:300}">
+			        </label>	
+			     </form>			
+			 </div>
+
+			<div class="content padding">
+				<button class="button button-calm button-positive formBtn" ng-click="reg.registe()" ng-disabled="regForm.$invalid">Register</button>
+			</div>
+
+		</div>
+    </ion-content>
+</ion-view>

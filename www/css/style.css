@@ -1,0 +1,181 @@
+body{
+    font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif ! important; 
+}
+
+/*-------------------头像---------------------*/
+.headPic-topBar{
+	border-radius: 50%
+}
+
+/*------------------popver----------------------*/
+.pop1{
+    color: #00a5e0 !important;
+}
+.pop2{
+    color: #fda960  !important;
+}
+.pop3{
+    color: #529fff !important;
+}
+.pop4{
+    color: #12b7f5  !important;
+}
+.pop5{
+    color: #fc747a !important;
+}
+.pop6{
+    color: #12b7f5 !important;
+}
+
+.popoverList .item{
+    color: #000 !important;
+}
+
+.popview.animated.ng-enter{
+    animation: 1s fadeInDown
+}
+
+
+.popview{
+    border-radius: 15px;
+    overflow: hidden;
+    height: 240px !important;
+    width: 150px !important;
+    top: 60px !important;
+    position: absolute !important;
+}
+
+.popItem{
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+    border-top: none !important; 
+    border-bottom: none !important; 
+    border-color: #fff;
+    font-size: 12px;
+ }
+
+
+
+/*---------tabs---------*/
+.tabs-striped .tab-item.tab-item-active{
+    border-color: #11c1f3 !important;
+}
+
+.tabs-striped .tab-item.activated{
+    border-color: #11c1f3 !important;
+}
+
+/*---------登录---------*/
+.formBtn{
+    width: 100%;
+    transition: all ease 0.4s;
+    -webkittransition: all ease 0.4s;
+}
+
+.logInBackGround{
+    background: url('../img/bg2.jpg') ;
+    background-size:cover;
+}
+
+.registerBackGround{
+    background: url('../img/bg1.jpg');
+    background-size:cover;
+}
+
+.modelTitle{
+    animation-delay: 0.6s;
+    -webkit-animation-delay: 0.6s;
+    padding-left: 10px;
+    color: #fff
+}
+
+.card{
+    border-radius: 10px !important;
+    opacity: 0.9;
+}
+
+.logInBackBtn{
+    position: absolute;
+    top: 5px;right: 10px;
+}
+
+.input-label{
+  color: #11c1f3 ;
+}
+
+.inputWrong{
+    color: #ff7575 !important;
+}
+
+.popoverItem a{
+    display: inline !important;
+}
+/*-----chat-------*/
+.chatItem{
+    border-width: 0px !important;
+}
+.chatRightTitle{
+   text-align: right !important;
+    position: relative !important; 
+}
+.chatRight{
+   text-align: right !important;
+}
+.chatPar{
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    white-space: normal !important;
+    padding: 0px 10px;
+    
+}
+
+.chatSys{
+   border-width: 0px !important;
+   padding: 0 !important;
+   max-height: 20px !important;
+}
+
+.chatSys p{
+    text-align: center;
+}
+
+.chatBackground{
+   
+}
+
+.itemAvatar{
+    padding-left: 72px;
+    min-height: 72px;
+}
+
+.itemAvatarRight{
+    padding-right: 72px;
+    min-height: 72px;
+}
+
+.itemAvatar>img:first-child {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    max-width: 40px;
+    max-height: 40px;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.itemAvatarRight>img:first-child {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    max-width: 40px;
+    max-height: 40px;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+
+
+
+
