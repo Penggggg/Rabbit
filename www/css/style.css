@@ -122,11 +122,12 @@ body{
    text-align: right !important;
 }
 .chatPar{
-    background-color: #f0f0f0;
-    border-radius: 5px;
+    max-width: 70%;
+    background-color: #0072e3;
+    color: #fff !important;
+    border-radius: 7px;
     white-space: normal !important;
-    padding: 0px 10px;
-    
+    padding: 5px 10px;
 }
 
 .chatSys{

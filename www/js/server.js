@@ -3,7 +3,7 @@ var appServer = angular.module('appServer', [])
 appServer.factory('eventEmmiter', ['$rootScope','$timeout', function($rootScope, $timeout){
 	var toBroadcast = function(eventType, args){
 		$timeout(function(){
-			console.log('$rootScope发射事件中...')		
+			console.log('$rootScope发射事件中 事件数据为：' + args)		
 			$rootScope.$broadcast(eventType, args);
 		}, 100)
 	}

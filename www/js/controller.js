@@ -177,35 +177,67 @@ appController.controller('chatDetailCtrl', ['$scope', 'Chat','msgStorage', funct
   })
 }])
 
-appController.controller('chatTogetherCtrl', ['$scope', 'Chat','msgStorage', function($scope, Chat,msgStorage){
+appController.controller('chatTogetherCtrl', ['$scope', 'Chat','msgStorage','$rootScope', function($scope, Chat,msgStorage,$rootScope){
   $scope.chat = {}
   var _scopeChat = $scope.chat;
-  _scopeChat.chatData = [
-  	{type: 'msg', left: true, right: false, from: 'HeZhuoPeng' ,text: 'hello, man. Im a shuaige.'},
-  	{type: 'msg', left: false, right: true,from: 'Me' ,text: 'Back off, man. Im shuaige to.'},
-  	{type: 'sys', left: true, right: false,from: '' ,text: 'somebody join!'}
-  ]
+  _scopeChat.chatData = $rootScope.chatData.pubicMsgData
 
   _scopeChat.sendMsg = function(){
+    //发送到服务器
     Chat.sendMsg({
       from: msgStorage.getUserStorage().account,
       text: _scopeChat.text
     })
+    //本地聊天记录
+    $rootScope.chatData.pubicMsgData.push({
+      type : 'msg',
+      left : false,
+      right : true,
+      from : 'Me',
+      text : _scopeChat.text
+    });
+    //清空输入框
+    _scopeChat.text = ''
   }
   $scope.$on('getPublicMsg', function(eve,data){
   	console.log('Controller 接到' + data.text)
-  	data.type = 'msg';
-  	data.left = true;
-  	data.right = false;
-  	_scopeChat.chatData.push(data);
+    _scopeChat.decorateData(data);
+    //tcp
+    $scope.$emit('CtrlGetMsg');
   })
+
+  _scopeChat.decorateData = function(data){
+    data.type = 'msg';
+    data.left = true;
+    data.right = false;
+    $rootScope.chatData.pubicMsgData.push(data);
+  }
+
+  $scope.$on('enterChatTogether', function(){
+    console.log('initChatData...');
+    $scope.$emit('initChatData');
+  })
+
+  $scope.$on('ChatData', function(eve, data){
+    if(data){
+      console.log('Ctrl接受到消息缓存' + data);
+      angular.forEach(data, function(d){
+          _scopeChat.decorateData(d);
+      })
+    }
+    
+
+  })
+
 
 }])
 
-appController.controller('tabsChatCtrl', ['$scope', '$location',function($scope,$location){
-	$scope.tab = function(){
-		$scope.test = '点击';
-		$location.path('/tabs/chattogether');
-	}
+appController.controller('tabsChatCtrl', ['$scope', '$location','eventEmmiter',function($scope,$location,eventEmmiter){
+  $scope.tab = {}
+  _scopeTab = $scope.tab;
+  _scopeTab.initChatData = function(){
+      eventEmmiter.toBroadcast('enterChatTogether')
+  }
+
 }])
 
