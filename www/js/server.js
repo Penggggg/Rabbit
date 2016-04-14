@@ -95,5 +95,26 @@ appServer.factory('Chat',[ 'Socket', function(Socket){
 	}
 }])
 
+appServer.factory('pubicChatStore', ['$rootScope', function($rootScope){
+	var initStore = [
+	    {type: 'msg', left: true, right: false, from: 'HeZhuoPeng' ,text: 'hello, man. Im a shuaige.'},
+	    {type: 'msg', left: false, right: true,from: 'Me' ,text: 'Back off, man. Im shuaige to.'},
+	    {type: 'sys', left: true, right: false,from: '' ,text: 'somebody join!'}
+	]
+	var decorateData = function(data){
+	    data.type = 'msg';
+	    data.left = true;
+	    data.right = false;
+    	return data
+  	}
+	return {
+		initStore: initStore,
+		decorateData: function(data){
+			return decorateData(data)
+		}
+	}
+}])
+
+
 
 

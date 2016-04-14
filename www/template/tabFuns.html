@@ -8,7 +8,7 @@
     <button  class="button button-icon icon ion-navicon" ng-click="openPopover($event)">
     </button>
     </ion-nav-buttons>
-	<ion-content scroll='false'>
+	<ion-content scroll='false' ng-controller="tabFunCtrl" ng-init="fun.initFun();">
 			<ion-slide-box does-continue='true'>
 				  <ion-slide>
 				    <div class="box blue"><h1>BLUE</h1></div>

@@ -113,16 +113,18 @@ body{
 /*-----chat-------*/
 .chatItem{
     border-width: 0px !important;
+    
 }
 .chatRightTitle{
    text-align: right !important;
     position: relative !important; 
 }
 .chatRight{
-   text-align: right !important;
+   
+
 }
 .chatPar{
-    max-width: 70%;
+    display: inline-block;
     background-color: #0072e3;
     color: #fff !important;
     border-radius: 7px;
@@ -131,12 +133,13 @@ body{
 }
 
 .chatSys{
+    overflow: visible !important;
    border-width: 0px !important;
    padding: 0 !important;
    max-height: 20px !important;
 }
 
-.chatSys p{
+.chatSys span{
     text-align: center;
 }
 
@@ -144,14 +147,28 @@ body{
    
 }
 
+.rightChat{
+    display: flex;
+    display: -webkit-flex;
+    justify-content:flex-end
+}
+
+.sysChat{
+    display: flex;
+    display: -webkit-flex;
+    justify-content:center;
+}
+
 .itemAvatar{
     padding-left: 72px;
     min-height: 72px;
+    padding-right: 90px
 }
 
 .itemAvatarRight{
     padding-right: 72px;
     min-height: 72px;
+    padding-left: 90px;
 }
 
 .itemAvatar>img:first-child {
@@ -175,6 +192,7 @@ body{
     height: 100%;
     border-radius: 50%;
 }
+
 
 
 

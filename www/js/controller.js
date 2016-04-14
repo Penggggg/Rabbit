@@ -177,11 +177,14 @@ appController.controller('chatDetailCtrl', ['$scope', 'Chat','msgStorage', funct
   })
 }])
 
-appController.controller('chatTogetherCtrl', ['$scope', 'Chat','msgStorage','$rootScope', function($scope, Chat,msgStorage,$rootScope){
+appController.controller('chatTogetherCtrl', ['$scope', 'Chat','msgStorage','$rootScope','pubicChatStore','$ionicScrollDelegate', function($scope, Chat,msgStorage,$rootScope,pubicChatStore,$ionicScrollDelegate){
   $scope.chat = {}
   var _scopeChat = $scope.chat;
-  _scopeChat.chatData = $rootScope.chatData.pubicMsgData
+  _scopeChat.scroll = true;
+  _scopeChat.bouncing = true;
+  _scopeChat.overFlow = true
 
+  _scopeChat.chatData = pubicChatStore.initStore;
   _scopeChat.sendMsg = function(){
     //发送到服务器
     Chat.sendMsg({
@@ -189,45 +192,23 @@ appController.controller('chatTogetherCtrl', ['$scope', 'Chat','msgStorage','$ro
       text: _scopeChat.text
     })
     //本地聊天记录
-    $rootScope.chatData.pubicMsgData.push({
+    _scopeChat.chatData.push({
       type : 'msg',
       left : false,
       right : true,
       from : 'Me',
       text : _scopeChat.text
     });
+    //$ionicScrollDelegate
+   $ionicScrollDelegate.scrollBottom(true);
     //清空输入框
     _scopeChat.text = ''
   }
-  $scope.$on('getPublicMsg', function(eve,data){
-  	console.log('Controller 接到' + data.text)
-    _scopeChat.decorateData(data);
-    //tcp
-    $scope.$emit('CtrlGetMsg');
+  $scope.$watchCollection('chat.chatData', function(newV){
+    console.log('in')
+    $ionicScrollDelegate.scrollBottom(true);
   })
 
-  _scopeChat.decorateData = function(data){
-    data.type = 'msg';
-    data.left = true;
-    data.right = false;
-    $rootScope.chatData.pubicMsgData.push(data);
-  }
-
-  $scope.$on('enterChatTogether', function(){
-    console.log('initChatData...');
-    $scope.$emit('initChatData');
-  })
-
-  $scope.$on('ChatData', function(eve, data){
-    if(data){
-      console.log('Ctrl接受到消息缓存' + data);
-      angular.forEach(data, function(d){
-          _scopeChat.decorateData(d);
-      })
-    }
-    
-
-  })
 
 
 }])
@@ -235,9 +216,22 @@ appController.controller('chatTogetherCtrl', ['$scope', 'Chat','msgStorage','$ro
 appController.controller('tabsChatCtrl', ['$scope', '$location','eventEmmiter',function($scope,$location,eventEmmiter){
   $scope.tab = {}
   _scopeTab = $scope.tab;
-  _scopeTab.initChatData = function(){
-      eventEmmiter.toBroadcast('enterChatTogether')
-  }
+
+
+}])
+
+appController.controller('tabFunCtrl', ['$scope','msgStorage', 'loginSocket',function($scope,msgStorage,loginSocket){
+    // //自动登录账户
+    $scope.fun = {}
+    _scopeFun = $scope.fun;
+    _scopeFun.initFun = function(){
+      console.log('in')
+      if(msgStorage.getUserStorage()){
+      loginSocket.login({
+        user: msgStorage.getUserStorage().account
+      })
+    }
+    }
 
 }])
 
